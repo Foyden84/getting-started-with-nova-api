@@ -24,8 +24,8 @@ If you are building on AWS, please see [AWS Samples for Amazon Nova](https://git
 
 1. Create a virtual environment (recommended):
 ```bash
-python -m venv my_nova
-source my_nova/bin/activate  # On Windows: venv\Scripts\activate
+python -m venv .venv
+source .venv/bin/activate  # On Windows: .venv\Scripts\activate
 ```
 
 2. Install required dependencies:
@@ -40,11 +40,6 @@ cp .evn.example .env
 4. Edit `.env` and replace `your_api_key_here` with your actual Amazon Nova API Key
 
 > ⚠️  Important: Never commit your `.env` file to version control
-
-4. Run the following to verify setup and list all the Amazon Nova models and agents available to you
-```bash
-python list_models.py
-```
 
 ## Examples
 

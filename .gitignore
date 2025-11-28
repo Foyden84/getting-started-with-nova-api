@@ -2,4 +2,6 @@
 __pycache__
 .ipynb_checkpoints/
 .env
-my_nova/
+.venv/
+*.egg-info/
+.python-version
