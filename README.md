@@ -47,6 +47,8 @@ cp .evn.example .env
 1. **multi_turn.ipynb**: Shows multi-turn conversation capabilities
 1. **nova_tools.ipynb**: Comprehensive guide to Nova's tool calling capabilities
 1. **nova_strands_sdk.ipynb**: Building Nova powered agents with Strands SDK
+1. **[langchain/](examples/langchain/)**: Examples using LangChain with Amazon Nova models
+1. **[nova_agents/](examples/nova_agents/)**: Agentic application examples combining Nova's capabilities such as multimodal, knowledge grounding, and computer use.
 
 ## License
 This library is licensed under the MIT-0 License. See the [LICENSE](/LICENSE) file.

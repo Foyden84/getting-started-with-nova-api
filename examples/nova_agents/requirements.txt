@@ -1,0 +1,5 @@
+openai>=1.0.0
+python-dotenv>=1.0.0
+nova-act
+strands-agents>=1.2.0
+strands-agents-tools
