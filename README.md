@@ -22,22 +22,28 @@ If you are building on AWS, please see [AWS Samples for Amazon Nova](https://git
 
 ## Setup
 
-1. Create a virtual environment (recommended):
+1. Clone this repo
+```bash
+git clone https://github.com/amazon-nova-api/getting-started-with-nova-api
+```
+
+
+2. Create a virtual environment (recommended):
 ```bash
 python -m venv .venv
 source .venv/bin/activate  # On Windows: .venv\Scripts\activate
 ```
 
-2. Install required dependencies:
+3. Install required dependencies:
 ```bash
 pip install -r requirements.txt
 ```
 
-3. Configure your API key:
+4. Configure your API key:
 ```bash
 cp .evn.example .env
 ```
-4. Edit `.env` and replace `your_api_key_here` with your actual Amazon Nova API Key
+5. Edit `.env` and replace `your_api_key_here` with your actual Amazon Nova API Key
 
 > ⚠️  Important: Never commit your `.env` file to version control
 
