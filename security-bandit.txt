@@ -1,0 +1,51 @@
+Run started:2026-01-03 23:16:12.680091+00:00
+
+Test results:
+>> Issue: [B104:hardcoded_bind_all_interfaces] Possible binding to all interfaces.
+   Severity: Medium   Confidence: Medium
+   CWE: CWE-605 (https://cwe.mitre.org/data/definitions/605.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.2/plugins/b104_hardcoded_bind_all_interfaces.html
+   Location: leadqual/api.py:216:26
+215	    import uvicorn
+216	    uvicorn.run(app, host="0.0.0.0", port=8000)
+217	
+
+--------------------------------------------------
+>> Issue: [B608:hardcoded_sql_expressions] Possible SQL injection vector through string-based query construction.
+   Severity: Medium   Confidence: Low
+   CWE: CWE-89 (https://cwe.mitre.org/data/definitions/89.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.2/plugins/b608_hardcoded_sql_expressions.html
+   Location: leadqual/database\models.py:113:18
+112	        
+113	        query = f"UPDATE leads SET {', '.join(set_clauses)} WHERE id = %s RETURNING *"
+114	        result = execute_insert(query, tuple(values))
+
+--------------------------------------------------
+>> Issue: [B104:hardcoded_bind_all_interfaces] Possible binding to all interfaces.
+   Severity: Medium   Confidence: Medium
+   CWE: CWE-605 (https://cwe.mitre.org/data/definitions/605.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.2/plugins/b104_hardcoded_bind_all_interfaces.html
+   Location: leadqual/oauth_fastapi.py:105:26
+104	    print("   Then click 'Connect Zoho Account'\n")
+105	    uvicorn.run(app, host="0.0.0.0", port=3000, log_level="warning")
+106	
+
+--------------------------------------------------
+
+Code scanned:
+	Total lines of code: 1369
+	Total lines skipped (#nosec): 0
+	Total potential issues skipped due to specifically being disabled (e.g., #nosec BXXX): 0
+
+Run metrics:
+	Total issues (by severity):
+		Undefined: 0
+		Low: 0
+		Medium: 3
+		High: 0
+	Total issues (by confidence):
+		Undefined: 0
+		Low: 1
+		Medium: 2
+		High: 0
+Files skipped (0):

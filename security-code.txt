@@ -1,0 +1,11 @@
+
+ ERROR   Snyk Code is not enabled (SNYK-CODE-0005)
+         This error occurs when Snyk Code is not enabled for the current Organization.  
+         Activate Snyk Code and try again..                                             
+                                                                                        
+           Snyk Code is not supported for your current organization: `foyden84`.        
+
+Status:  403 Forbidden 
+Docs:    https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-code-0005 
+                                                                          
+ID:      urn:snyk:interaction:692e56b8-f75e-4937-8070-f8c7e5777463 

@@ -54,6 +54,15 @@ def get_zoho() -> ZohoCRM:
     return zoho
 
 
+mail_client = None
+
+def get_mail() -> ZohoMail:
+    global mail_client
+    if mail_client is None:
+        mail_client = ZohoMail()
+    return mail_client
+
+
 # Request/Response Models
 class LeadCreate(BaseModel):
     email: EmailStr
@@ -76,6 +85,15 @@ class GenerateEmailRequest(BaseModel):
     conversation_history: Optional[str] = ""
     current_score: Optional[int] = 0
     custom_questions: Optional[str] = ""
+
+
+class SendEmailRequest(BaseModel):
+    to_address: EmailStr
+    subject: str
+    html_content: str
+    from_address: Optional[str] = None
+    cc: Optional[List[str]] = None
+    bcc: Optional[List[str]] = None
 
 
 # Endpoints
@@ -159,6 +177,38 @@ async def get_current_user_info(user: ClerkUser = Depends(clerk_auth)):
         "last_name": user.last_name,
         "organization_id": user.organization_id
     }
+
+
+@app.post("/api/email/send")
+async def send_qualification_email(
+    request: SendEmailRequest,
+    user: ClerkUser = Depends(clerk_auth)
+):
+    """Send a qualification email via Zoho Mail (requires authentication)"""
+    try:
+        mail = get_mail()
+        result = await mail.send_email(
+            to_address=request.to_address,
+            subject=request.subject,
+            html_content=request.html_content,
+            from_address=request.from_address,
+            cc=request.cc,
+            bcc=request.bcc
+        )
+        return {"success": True, "data": result, "user_id": user.user_id}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.get("/api/email/test")
+async def test_mail_connection(user: ClerkUser = Depends(clerk_auth)):
+    """Test Zoho Mail connection (requires authentication)"""
+    try:
+        mail = get_mail()
+        connected = await mail.test_connection()
+        return {"success": connected, "user_id": user.user_id}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
 
 
 if __name__ == "__main__":

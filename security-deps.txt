@@ -1,0 +1,11 @@
+
+ ERROR   Unspecified Error (SNYK-CLI-0000)
+                                                                                        
+           Required packages missing: clerk-backend-api                                 
+                                                                                        
+           Please run `pip install -r leadqual/requirements.txt`. If the issue persists 
+           try again with --skip-unresolved.                                            
+
+Docs:    https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-cli-0000 
+                                                                         
+ID:      urn:snyk:interaction:e14db5a5-413d-4646-9046-c533f6181165 
